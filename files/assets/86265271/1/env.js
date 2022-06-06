@@ -1,3 +1,5 @@
+RINKEBY_CONTRACT = "0x778CAe6104c17ad7E4AedfbF0855C8a04F94e034"
+
 Env = {
-    'contract_address' : "0xfD06d32d6Dc534f8A3491e6c45dba2d321F04646",   
+    'contract_address' : RINKEBY_CONTRACT,   
 };
