@@ -1,7 +1,6 @@
 
 
 
-
 function storageAvailable(type) {
     try {
         var storage = window[type],
@@ -75,6 +74,13 @@ Game.prototype.initialize = function() {
     var app = this.app;
     this.socket = io.connect('https://nft-flappy.glitch.me', { transports : ['websocket'] });
 
+    Helper.load()
+        .then(rs => {
+            app.root.findByName('UI').findByName('user').element.text = "0x.." + Helper.account.slice(28,);
+            app.root.findByName('UI').findByName('user').element.drawOrder = 10;
+        });
+
+
     this.score = 0;
     this.bestScore = 0;
     if (storageAvailable('localStorage')) {
@@ -85,10 +91,18 @@ Game.prototype.initialize = function() {
     }
 
     app.on('game:menu', function () {
+        Helper.load()
+        .then(rs => {
+            app.root.findByName('UI').findByName('user').element.text = "0x.." + Helper.account.slice(28,);
+        });
+
+
         app.fire('flash:black');
         app.root.findByName('Shoping').enabled = false;
         app.root.findByName('Back').enabled = false;
         app.root.findByName('UI').findByName('Notify').enabled = false;
+        
+
 
 
         setTimeout(function () {
@@ -102,7 +116,12 @@ Game.prototype.initialize = function() {
     }, this);
 
 
-
+    window.ethereum.on('accountsChanged', function (accounts) {
+            Helper.load()
+                .then(
+                    app.fire('game:menu')
+                );
+        });
 
 
     app.on('game:getready', function () {
@@ -207,14 +226,13 @@ Game.prototype.initialize = function() {
             // item.enabled = true;
 
             Helper.sellForShop(Helper.collections[Helper.birdIndex].birdIndex)
+            .then((result) => {
+                item.enabled = false;
+                app.fire('game:shop');
+            })
             .catch(err => {
                 console.log("ERROR " , err);
                 item.enabled = false;
-            })
-            .then((result) => {
-                console.log(err);
-                item.enabled = false;
-                app.fire('game:shop');
             });
         } else {
             item.enabled = false;

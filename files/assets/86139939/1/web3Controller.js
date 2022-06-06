@@ -137,5 +137,4 @@ Helper = {
     }
   };
 
-Helper.load();
   
