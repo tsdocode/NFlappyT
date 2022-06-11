@@ -10,12 +10,20 @@ Customize classic Flappy Bird game with Blockchain back-end
 
 ## Technology
 
-- Game engine: Playcanvas
+- Game engine: [Playcanvas](https://developer.playcanvas.com/en/)
 - Blockchain:
-  - Local test network: Ganache
-  - Public test network: Rinkeby
-  - Smart contract tool: Truffle
-  - NFT: Openzeppelin
+  - Local test network: [Ganache](https://trufflesuite.com/ganache/)
+  - Public test network: [Rinkeby](https://www.rinkeby.io/)
+  - Smart contract tool: [Truffle](https://trufflesuite.com/)
+  - NFT: [Openzeppelin](https://www.openzeppelin.com/)
+
+
+## Game Architecture
+![](./git_assets/GameArchitecture.png)
+
+
+## Game Play
+![](./git_assets/GamePlay.png)
 
 
 ## Game features
@@ -23,6 +31,32 @@ Customize classic Flappy Bird game with Blockchain back-end
 - Buy bird via Opensea
 - Reward when complete game
   - bonus based on bird's rare
+
+## Bird Attributes
+- **Rare**:
+  - Normal: 50%
+  - Rare: 30%
+  - Epic: 20%
+  - Legendary: 10%
+- **Bonus**:
+  - Normal: 0%
+  - Rare: 20%
+  - Epic: 30%
+  - Legendary: 100%
+- **Max Stamina**:
+  - Normal: 999
+  - Rare: 300
+  - Epic: 200
+  - Legendary: 20
+
+## Luckydraw
+This is not a secure random method, I will update later.
+
+1. Random number in js
+2. Random rare base on this number in smart contract
+3. Random bird base on this rare in smart contract
+4. Mint bird to player
+
 
 
 ## How to play
@@ -38,3 +72,8 @@ Customize classic Flappy Bird game with Blockchain back-end
 6. Enjoy
 
 
+## References
+
+[Flappy Bird - Dong Nguyen](https://vi.wikipedia.org/wiki/Flappy_Bird)
+[Original Flappy Bird based on Play Canvas](https://developer.playcanvas.com/en/tutorials/flappy-bird/)
+[Buildspace NFT Game guide](https://buildspace.so/p/CO5cc2751b-e878-41c4-99fa-a614dc910ee9)
