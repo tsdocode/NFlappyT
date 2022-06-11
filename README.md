@@ -19,11 +19,11 @@ Customize classic Flappy Bird game with Blockchain back-end
 
 
 ## Game Architecture
-![](./git_assets/GameArchitecture.png)
+![](./git_assets/GameArchitecture.drawio.png)
 
 
 ## Game Play
-![](./git_assets/GamePlay.png)
+![](./git_assets/GamePlay.drawio.png)
 
 
 ## Game features
@@ -75,5 +75,7 @@ This is not a secure random method, I will update later.
 ## References
 
 [Flappy Bird - Dong Nguyen](https://vi.wikipedia.org/wiki/Flappy_Bird)
+
 [Original Flappy Bird based on Play Canvas](https://developer.playcanvas.com/en/tutorials/flappy-bird/)
+
 [Buildspace NFT Game guide](https://buildspace.so/p/CO5cc2751b-e878-41c4-99fa-a614dc910ee9)
