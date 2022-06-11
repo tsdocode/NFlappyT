@@ -73,6 +73,8 @@ Game.prototype.load_shop = ( template) => {
 Game.prototype.initialize = function() {
     var app = this.app;
     this.socket = io.connect('https://nft-flappy.glitch.me', { transports : ['websocket'] });
+    app.root.findByName('UI').findByName('user').element.text = "Your wallet"
+
 
     Helper.load()
         .then(rs => {
