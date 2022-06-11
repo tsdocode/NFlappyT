@@ -83,8 +83,11 @@ Helper = {
         await Helper.contract.methods.checkIfUserHasNFT(Helper.account).call()
             .then(result => {
                 Helper.collections = result;   
-                if (Helper.collections.length > 0) {
-                  Helper.birdIndex = 0;
+                collectionLength = Helper.collections.length;
+                if (collectionLength > 0) {
+                  if (Helper.birdIndex == -1 && Helper.birdIndex > collectionLength - 1) {
+                    Helper.birdIndex = 0;
+                  }
                 } else {
                   Helper.birdIndex = -1;
                 }

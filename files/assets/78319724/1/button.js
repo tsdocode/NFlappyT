@@ -85,8 +85,17 @@ Button.prototype.release = function () {
         if (this.event == 'game:select') {
             unselect_all();
             var asset_id = this.entity.sprite.spriteAsset;
-            Helper.birdIndex = this.entity.birdIndex;
+            index = this.entity.birdIndex;
             this.entity.element.opacity = 0.3;
+            var notify = app.root.findByName('UI').findByName('Notify');
+
+            if (Helper.collections[index].stamina == 0) {
+                notify.enabled = true;
+                notify.element.text = "Bird is out of Stamina";
+            } else {
+                Helper.birdIndex = index;
+                notify.enabled = false;
+            }
 
             app.fire(this.event, asset_id);
         } else {
