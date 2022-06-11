@@ -19,11 +19,11 @@ Customize classic Flappy Bird game with Blockchain back-end
 
 
 ## Game Architecture
-![](./git_assets/GameArchitecture.png)
+![](./git_assets/GameArchitecture.drawio.png)
 
 
 ## Game Play
-![](./git_assets/GamePlay.png)
+![](./git_assets/GamePlay.drawio.png)
 
 
 ## Game features
