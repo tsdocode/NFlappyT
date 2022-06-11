@@ -123,6 +123,10 @@ Game.prototype.initialize = function() {
                     app.fire('game:menu')
                 );
         });
+    } else {
+        var notify = app.root.findByName('UI').findByName('Notify');
+        notify.enabled = true;
+        notify.element.text = "Please install MetaMask to play";
     }
 
 
