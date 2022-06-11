@@ -116,12 +116,14 @@ Game.prototype.initialize = function() {
     }, this);
 
 
-    window.ethereum.on('accountsChanged', function (accounts) {
+    if (window.ethereum) {
+        window.ethereum.on('accountsChanged', function (accounts) {
             Helper.load()
                 .then(
                     app.fire('game:menu')
                 );
         });
+    }
 
 
     app.on('game:getready', function () {
