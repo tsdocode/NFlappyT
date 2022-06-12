@@ -134,7 +134,7 @@ Game.prototype.initialize = function() {
 
     app.on('game:getready', function () {
         console.log(Helper.birdIndex);
-        if (Helper.birdIndex == -1 || Helper.collections[Helper.birdIndex].stamina == 0) {
+        if (Helper.birdIndex != -1 || Helper.collections[Helper.birdIndex].stamina > 0) {
             app.fire('flash:black');
             setTimeout(function () {
                 app.root.findByName('Menu Screen').enabled = false;
