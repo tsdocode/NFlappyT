@@ -134,25 +134,28 @@ Game.prototype.initialize = function() {
 
     app.on('game:getready', function () {
         console.log(Helper.birdIndex);
-        if (Helper.birdIndex != -1 || Helper.collections[Helper.birdIndex].stamina > 0) {
-            app.fire('flash:black');
-            setTimeout(function () {
-                app.root.findByName('Menu Screen').enabled = false;
-                app.root.findByName('Game Screen').enabled = true;
 
-                this.score = 0;
-                app.fire('ui:score', this.score);
-
-                app.root.findByName('Get Ready').sprite.enabled = true;
-                app.root.findByName('Tap').enabled = true;
-
-
-                // app.root.findByName('Game').findByName('Bird2').
-                
-                app.root.findByName('Game').findByName('Bird2').enabled = true;
-                
-            }.bind(this), 250);
-        } else {
+        try {
+            if (Helper.birdIndex != -1 || Helper.collections[Helper.birdIndex].stamina > 0) {
+                app.fire('flash:black');
+                setTimeout(function () {
+                    app.root.findByName('Menu Screen').enabled = false;
+                    app.root.findByName('Game Screen').enabled = true;
+    
+                    this.score = 0;
+                    app.fire('ui:score', this.score);
+    
+                    app.root.findByName('Get Ready').sprite.enabled = true;
+                    app.root.findByName('Tap').enabled = true;
+    
+    
+                    // app.root.findByName('Game').findByName('Bird2').
+                    
+                    app.root.findByName('Game').findByName('Bird2').enabled = true;
+                    
+                }.bind(this), 250);
+            }
+        } catch(err) {
             var notify = app.root.findByName('UI').findByName('Notify');
             notify.enabled = true;
             notify.element.text = "Must have a bird to play";
