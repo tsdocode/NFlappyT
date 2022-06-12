@@ -9,7 +9,7 @@ Input.prototype.initialize = function() {
             processed: false
         };
         app.fire('ui:press', x, y, obj);
-        // console.log(this.app.assets.find("Bird2", "sprite"));
+        //// console.log(this.app.assets.find("Bird2", "sprite"));
         
         // If the UI didn't handle the mousedown/touch, sent it on to the game
         if (!obj.processed) {

@@ -17,7 +17,7 @@ function storageAvailable(type) {
 var Game = pc.createScript('game');
 
 const select_bird = (template, id) => {
-    // console.log(id);
+    //// console.log(id);
 
     try {
         var asset_id = this.app.assets.find(id.sprite,  'sprite').id;
@@ -27,7 +27,7 @@ const select_bird = (template, id) => {
         template.sprite.clip('Flap').spriteAsset = asset_id;
         template.sprite.play('Flap');
     } catch(err){
-        console.log(err);
+       // console.log(err);
     }
 };
 
@@ -38,15 +38,15 @@ const select_bird_by_id = (template, asset_id) => {
     template.sprite.clip('Flap').spriteAsset = asset_id;
     template.sprite.play('Flap');
 
-    console.log(template);
+   // console.log(template);
 };
 
 
 Game.prototype.load_shop = ( template) => {
-    // console.log(birds);
+    //// console.log(birds);
     birds = Helper.collections;
 
-    console.log(birds);
+   // console.log(birds);
 
 
     shop_entity = app.root.findByName('Shop');
@@ -60,9 +60,9 @@ Game.prototype.load_shop = ( template) => {
         
         shop_entity.addChild(e);
 
-        console.log(e);
+       // console.log(e);
 
-        console.log('Done');
+       // console.log('Done');
     });
 };
 
@@ -133,7 +133,7 @@ Game.prototype.initialize = function() {
 
 
     app.on('game:getready', function () {
-        console.log(Helper.birdIndex);
+       // console.log(Helper.birdIndex);
 
         try {
             if (Helper.birdIndex != -1 || Helper.collections[Helper.birdIndex].stamina > 0) {
@@ -155,6 +155,7 @@ Game.prototype.initialize = function() {
                     
                 }.bind(this), 250);
             }
+        
         } catch(err) {
             var notify = app.root.findByName('UI').findByName('Notify');
             notify.enabled = true;
@@ -181,7 +182,7 @@ Game.prototype.initialize = function() {
                 // Acccounts now exposed
             } catch (error) {
                 // User denied account access...
-                console.log(error)
+               // console.log(error)
             }
         }
         // Legacy dapp browsers...
@@ -191,7 +192,7 @@ Game.prototype.initialize = function() {
         }
         // Non-dapp browsers...
         else {
-            console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+           // console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
         }
     }, this);
 
@@ -200,7 +201,7 @@ Game.prototype.initialize = function() {
         var item = app.root.findByName('Loading');
         var notify = app.root.findByName('UI').findByName('Notify');
 
-        console.log("NOTIFY ", notify);
+       // console.log("NOTIFY ", notify);
 
 
         if (Helper.collections.length < 6) {
@@ -210,7 +211,7 @@ Game.prototype.initialize = function() {
             Helper.luckyDraw()
                 .catch(err => {
                     item.enabled = false;
-                    console.log("ERROR " , err);
+                   // console.log("ERROR " , err);
                 })
                 .then(result => {
                     item.enabled = false;
@@ -228,9 +229,9 @@ Game.prototype.initialize = function() {
         var notify = app.root.findByName('UI').findByName('Notify');
 
         item.enabled = true;
-        console.log("NOTIFY ", notify);
+       // console.log("NOTIFY ", notify);
 
-        // console.log("SELL" , Helper.collections[Helper.birdIndex].birdIndex)
+        //// console.log("SELL" , Helper.collections[Helper.birdIndex].birdIndex)
 
         if (Helper.collections.length > 0) {
             notify.enabled = false;
@@ -242,7 +243,7 @@ Game.prototype.initialize = function() {
                 app.fire('game:shop');
             })
             .catch(err => {
-                console.log("ERROR " , err);
+               // console.log("ERROR " , err);
                 item.enabled = false;
             });
         } else {
@@ -289,7 +290,7 @@ Game.prototype.initialize = function() {
     }, this);
 
     app.on('game:select' , function(asset_id) {
-        console.log("ID " , asset_id);
+       // console.log("ID " , asset_id);
         var bird2 = app.root.findByName('Game').findByName('Bird2');
         select_bird_by_id(bird2, asset_id);
 
@@ -321,10 +322,10 @@ Game.prototype.initialize = function() {
     app.on('game:gameover', function () {
 
         try {
-            console.log(Helper.collections[Helper.birdIndex])
+           // console.log(Helper.collections[Helper.birdIndex])
             Helper.gameComplete(this.score, Helper.collections[Helper.birdIndex].birdIndex); 
         } catch(err) {
-            console.log(err);
+           // console.log(err);
         }
         app.root.findByName('Game Screen').enabled = false;
         app.root.findByName('Game Over Screen').enabled = true;

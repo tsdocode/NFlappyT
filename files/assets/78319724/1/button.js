@@ -41,10 +41,10 @@ Button.prototype.initialize = function() {
 Button.prototype.checkForClick = function (x, y) {
     var app = this.app;
     var cameraEntity = app.root.findByName('Camera');
-    // console.log("ENTITY " , this.entity);
+    //// console.log("ENTITY " , this.entity);
 
     var aabb = this.entity.sprite._meshInstance.aabb;
-    // console.log(x,y);
+    //// console.log(x,y);
     cameraEntity.camera.worldToScreen(aabb.getMin(), this.min);
     cameraEntity.camera.worldToScreen(aabb.getMax(), this.max);
     if ((x >= this.min.x) && (x <= this.max.x) &&
@@ -58,7 +58,7 @@ Button.prototype.press = function (x, y, obj) {
     if (this.checkForClick(x, y)) {
         this.pressed = true;
         this.entity.translate(0, -this.diplacement, 0);
-        // console.log("ENTITY " , this.entity);
+        //// console.log("ENTITY " , this.entity);
 
         // This event has been intercepted by a button - don't send it on to the game
         obj.processed = true;
@@ -80,7 +80,7 @@ Button.prototype.release = function () {
     if (this.pressed) {
         this.pressed = false;
         this.entity.translate(0, this.diplacement, 0);
-        console.log(this.event);
+       // console.log(this.event);
 
         if (this.event == 'game:select') {
             unselect_all();

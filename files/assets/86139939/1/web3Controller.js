@@ -31,7 +31,7 @@ Helper = {
             // Acccounts now exposed
         } catch (error) {
             // User denied account access...
-            console.log(error);
+           // console.log(error);
         }
     }
     // Legacy dHelper browsers...
@@ -41,7 +41,7 @@ Helper = {
     }
     // Non-dHelper browsers...
     else {
-        console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+       // console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
     }
     },
   
@@ -51,7 +51,7 @@ Helper = {
     },
   
     loadContract: async () => {
-        console.log(Env.contract_address);
+       // console.log(Env.contract_address);
         Helper.contract =  new Helper.web3.eth.Contract(CONTRACT_ABI.abi, Env.contract_address);
     },
   
@@ -78,7 +78,7 @@ Helper = {
   
     loadNFT: async () => {
         // Load the contract data
-        console.log(Helper.contract.methods);
+       // console.log(Helper.contract.methods);
         $('.bird').empty();
         await Helper.contract.methods.checkIfUserHasNFT(Helper.account).call()
             .then(result => {
@@ -99,34 +99,34 @@ Helper = {
 
         let randomNumber = between(2112001, 99999999);
 
-        console.log(randomNumber);
+       // console.log(randomNumber);
 
         
         await Helper.contract.methods.luckyDraw(randomNumber).send({from: Helper.account})
             .then(result => {
-                console.log(result);
+               // console.log(result);
                 Helper.loadNFT();
             }
         );
     },
 
     evenHandler: async () => {
-      console.log(Helper.contract.events);
+     // console.log(Helper.contract.events);
       Helper.contract.events.GameReward()
         .on("data", event => {
             _player = event.returnValues._player;
             _reward = event.returnValues._ether / Math.pow(10,18);
-            console.log("USER " + _player + " GOT " + _reward + " ETH");
+           // console.log("USER " + _player + " GOT " + _reward + " ETH");
         }); 
     },
 
     gameComplete: async (score, birdId) => {
-        console.log("BirdID" , birdId);
+       // console.log("BirdID" , birdId);
         await Helper.contract.methods.gameComplete(score, birdId).send({from: Helper.account})
             .then(result => {
                 
                 Helper.loadNFT();
-                console.log(result);
+               // console.log(result);
             });
 
     },
@@ -135,7 +135,7 @@ Helper = {
         .then(result => {
                 
                 Helper.loadNFT();
-                console.log(result);
+               // console.log(result);
             });
     }
   };
