@@ -159,7 +159,7 @@ Game.prototype.initialize = function() {
         } catch(err) {
             var notify = app.root.findByName('UI').findByName('Notify');
             notify.enabled = true;
-            notify.element.text = "Must have a bird to play";
+            notify.element.text = "Must select a bird to play";
         }
 
         
