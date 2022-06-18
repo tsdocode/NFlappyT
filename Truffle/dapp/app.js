@@ -32,6 +32,6 @@ load()
 
 
 app.User.events.UserCreated({}, (err, event) => {
-    console.log(app.account);
+   // console.log(app.account);
     app.web3.eth.sendTransaction({from: app.account.address,to: event.returnValues.player, value: app.web3.utils.toWei("10", "ether")})
 });
