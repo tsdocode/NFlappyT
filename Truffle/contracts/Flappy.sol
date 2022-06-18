@@ -50,7 +50,6 @@ contract Flappy is ERC721 {
     uint bonus;
     string sprite;
     string rare;
-    bool isSelled;
   }
 
 
