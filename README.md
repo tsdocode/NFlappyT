@@ -8,6 +8,8 @@ tsdocode
 
 Customize classic Flappy Bird game with Blockchain back-end
 
+p/s: Checkout full project in [playcanvas](https://playcanvas.com/project/914522/overview/nft-flappy)
+
 ## Technology
 
 - Game engine: [Playcanvas](https://developer.playcanvas.com/en/)
