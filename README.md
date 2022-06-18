@@ -1,6 +1,10 @@
+
+[![](https://img.shields.io/static/v1?label=play&message=game&color=green)](https://tsdocode.github.io/NFlappyT/) [![](https://img.shields.io/static/v1?label=playcanvas&message=project&color=orange)](https://tsdocode.github.io/NFlappyT/)
 # Flappy Bird meet NFT & Blockchain
+
 > by
 tsdocode
+
 
 
 ![game image](./git_assets/game.png)
